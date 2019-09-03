@@ -1,0 +1,17 @@
+@prefix : <http://example.com/metadata#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix r3d: <http://www.re3data.org/schema/3-0#> .
+
+:Repository a sh:NodeShape ;
+    sh:targetClass r3d:Repository ;
+    sh:and (
+        :Metadata
+        [
+            a sh:PropertyShape ;
+            sh:name "Catalog" ;
+            sh:description "Catalog metadata contained by the repository" ;
+            sh:path r3d:dataCatalog ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 0 .
+        ]
+    ) .

@@ -1,0 +1,87 @@
+@prefix : <http://example.com/metadata#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+:Metadata a sh:NodeShape ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:name "Title" ;
+        sh:description "Human readable title for the metadata" ;
+        sh:path dct:title ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+        sh:uniqueLang true .
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:name "Issued" ;
+        sh:description "Timestamp for the initial creation date" ;
+        sh:path dct:issued ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:name "Modified" ;
+        sh:description "Timestamp for the last modification date" ;
+        sh:path dct:modified ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:name "Version" ;
+        sh:description "Version string" ;
+        sh:path dct:version ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:name "Description" ;
+        sh:description "Human readable description of the metadata" ;
+        sh:path dct:description ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 0 ;
+        sh:uniqueLang true .
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:name "Publisher" ;
+        sh:description "Entity responsible for the publising of the metadata" ;
+        sh:path dct:publisher ;
+        sh:node :Publisher ;
+        sh:minCount 1 .
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:name "Language" ;
+        sh:description "Language of the metadata content" ;
+        sh:path dct:language ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 0 .
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:name "License" ;
+        sh:description "License document of the metadata" ;
+        sh:path dct:license ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 0 .
+    ] .
+
+:Publisher a sh:NodeShape ;
+    sh:targetClass foaf:Agent ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:name "Publisher name" ;
+        sh:description "Name of the publishing agent" ;
+        sh:path foaf:name ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 .
+    ] .

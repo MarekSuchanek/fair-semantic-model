@@ -1,0 +1,52 @@
+@prefix : <http://example.com/metadata#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+:Distribution a sh:NodeShape ;
+    sh:targetClass dcat:Distribution ;
+    sh:and (
+        :Metadata
+        [
+            a sh:PropertyShape ;
+            sh:or (
+                [
+                    sh:path dcat:accessURL ;
+                    sh:name ""Access URL ;
+                    sh:description "URL for the landing page of the distribution" .
+                ]
+                [
+                    sh:path dcat:downloadURL ;
+                    sh:name "Download URL" ;
+                    sh:description "URL for the download location of the binary distribution" .
+                ]
+            ) ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 1 .
+        ]
+        [
+            a sh:PropertyShape ;
+            sh:name "Media type" ;
+            sh:description "The media type of the distribution" ;
+            sh:path dcat:mediaType ;
+            sh:nodeKind sh:Literal ;
+            sh:pattern "\S+?\/\S+|\*" ;
+            sh:minCount 1 .
+        ]
+        [
+            a sh:PropertyShape ;
+            sh:name "Format" ;
+            sh:description "The file format of the distribution" ;
+            sh:path dcat:format ;
+            sh:nodeKind sh:Literal ;
+            sh:minCount 0 .
+        ]
+        [
+            a sh:PropertyShape ;
+            sh:name "Byte size" ;
+            sh:description "Size of the distribution in bytes" ;
+            sh:path dcat:byteSize ;
+            sh:datatype xsd:int ;
+            sh:minCount 0 .
+        ]
+    ) .

@@ -1,0 +1,49 @@
+@prefix : <http://example.com/metadata#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+:Dataset a sh:NodeShape ;
+    sh:targetClass dcat:Dataset ;
+    sh:and (
+        :Metadata
+        [
+            a sh:PropertyShape ;
+            sh:name "Theme" ;
+            sh:description "Machine readable concepts that describe the metadata" ;
+            sh:path dcat:theme ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 1 .
+        ]
+        [
+            a sh:PropertyShape ;
+            sh:name "Keyword" ;
+            sh:description "Human readable keywords that describe the metadata" ;
+            sh:path dcat:keyword ;
+            sh:nodeKind sh:Literal ;
+            sh:minCount 0 .
+        ]
+        [
+            a sh:PropertyShape ;
+            sh:name "Contact point" ;
+            sh:description "Main contact point for the dataset" ;
+            sh:path dcat:contactPoint ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 0 .
+        ]
+        [
+            a sh:PropertyShape ;
+            sh:name "Landing page" ;
+            sh:description "Landing page of the website for the dataset" ;
+            sh:path dcat:landingPage ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 0 .
+        ]
+        [
+            a sh:PropertyShape ;
+            sh:name "Distribution" ;
+            sh:description "Distribution metadata contained by the dataset" ;
+            sh:path dcat:distribution ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 0 .
+        ]
+    ) .

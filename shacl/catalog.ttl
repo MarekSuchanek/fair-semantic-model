@@ -1,0 +1,26 @@
+@prefix : <http://example.com/metadata#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+:Catalog a sh:NodeShape ;
+    sh:targetClass dcat:Catalog ;
+    sh:and (
+        :Metadata
+        [
+            a sh:PropertyShape ;
+            sh:name "Theme taxonomy" ;
+            sh:description "Resource for the dataset themes" ;
+            sh:path dcat:themeTaxonomy ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 1 ;
+            sh:maxCount 1 .
+        ]
+        [
+            a sh:PropertyShape ;
+            sh:name "Dataset" ;
+            sh:description "Dataset metadata contained by the catalog" ;
+            sh:path dcat:dataset ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 0 .
+        ]
+    ) .
