@@ -20,7 +20,6 @@
             sh:name "Dataset" ;
             sh:description "Dataset metadata contained by the catalog" ;
             sh:path dcat:dataset ;
-            sh:nodeKind sh:IRI ;
-            sh:minCount 0 .
+            sh:nodeKind sh:IRI .
         ]
     ) .
