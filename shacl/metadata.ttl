@@ -12,7 +12,7 @@
         sh:path dct:title ;
         sh:nodeKind sh:Literal ;
         sh:minCount 1 ;
-        sh:uniqueLang true .
+        sh:uniqueLang true ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -21,7 +21,7 @@
         sh:path dct:issued ;
         sh:datatype xsd:dateTime ;
         sh:minCount 1 ;
-        sh:maxCount 1 .
+        sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -30,7 +30,7 @@
         sh:path dct:modified ;
         sh:datatype xsd:dateTime ;
         sh:minCount 1 ;
-        sh:maxCount 1 .
+        sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -39,7 +39,7 @@
         sh:path dct:version ;
         sh:nodeKind sh:Literal ;
         sh:minCount 1 ;
-        sh:maxCount 1 .
+        sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -47,7 +47,7 @@
         sh:description "Human readable description of the metadata" ;
         sh:path dct:description ;
         sh:nodeKind sh:Literal ;
-        sh:uniqueLang true .
+        sh:uniqueLang true ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -55,21 +55,21 @@
         sh:description "Entity responsible for the publising of the metadata" ;
         sh:path dct:publisher ;
         sh:node :Publisher ;
-        sh:minCount 1 .
+        sh:minCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
         sh:name "Language" ;
         sh:description "Language of the metadata content" ;
         sh:path dct:language ;
-        sh:nodeKind sh:IRI .
+        sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
         sh:name "License" ;
         sh:description "License document of the metadata" ;
         sh:path dct:license ;
-        sh:nodeKind sh:IRI .
+        sh:nodeKind sh:IRI ;
     ] .
 
 :Publisher a sh:NodeShape ;
@@ -80,5 +80,5 @@
         sh:description "Name of the publishing agent" ;
         sh:path foaf:name ;
         sh:nodeKind sh:Literal ;
-        sh:minCount 1 .
+        sh:minCount 1 ;
     ] .

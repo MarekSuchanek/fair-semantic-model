@@ -12,14 +12,14 @@
             sh:description "Machine readable concepts that describe the metadata" ;
             sh:path dcat:theme ;
             sh:nodeKind sh:IRI ;
-            sh:minCount 1 .
+            sh:minCount 1 ;
         ]
         [
             a sh:PropertyShape ;
             sh:name "Keyword" ;
             sh:description "Human readable keywords that describe the metadata" ;
             sh:path dcat:keyword ;
-            sh:nodeKind sh:Literal .
+            sh:nodeKind sh:Literal ;
         ]
         [
             a sh:PropertyShape ;
@@ -27,7 +27,7 @@
             sh:description "Main contact point for the dataset" ;
             sh:path dcat:contactPoint ;
             sh:nodeKind sh:IRI ;
-            sh:maxCount 1 .
+            sh:maxCount 1 ;
         ]
         [
             a sh:PropertyShape ;
@@ -35,13 +35,13 @@
             sh:description "Landing page of the website for the dataset" ;
             sh:path dcat:landingPage ;
             sh:nodeKind sh:IRI ;
-            sh:maxCount 1 .
+            sh:maxCount 1 ;
         ]
         [
             a sh:PropertyShape ;
             sh:name "Distribution" ;
             sh:description "Distribution metadata contained by the dataset" ;
             sh:path dcat:distribution ;
-            sh:nodeKind sh:IRI .
+            sh:nodeKind sh:IRI ;
         ]
     ) .
