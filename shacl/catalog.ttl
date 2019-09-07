@@ -13,13 +13,13 @@
             sh:path dcat:themeTaxonomy ;
             sh:nodeKind sh:IRI ;
             sh:minCount 1 ;
-            sh:maxCount 1 .
+            sh:maxCount 1 ;
         ]
         [
             a sh:PropertyShape ;
             sh:name "Dataset" ;
             sh:description "Dataset metadata contained by the catalog" ;
             sh:path dcat:dataset ;
-            sh:nodeKind sh:IRI .
+            sh:nodeKind sh:IRI ;
         ]
     ) .
