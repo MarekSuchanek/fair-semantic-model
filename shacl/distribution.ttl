@@ -31,7 +31,7 @@
             sh:description "The media type of the distribution" ;
             sh:path dcat:mediaType ;
             sh:nodeKind sh:Literal ;
-            sh:pattern "\S+?\/(?:\S+|\*)" ;
+            sh:pattern "\\S+?\\/(?:\\S+|\\*)" ;
             sh:minCount 1 ;
             sh:MaxCount 1 ;
         ]
